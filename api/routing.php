@@ -6,7 +6,13 @@
   use services\DB;
 
   require "controllers/PostsController.php"; 
+  require "controllers/UsersController.php";
+  require "controllers/ReservationsController.php";
+  require "controllers/CustomersController.php";
   use api\controllers\PostsController;
+  use api\controllers\UsersController;
+  use api\controllers\ReservationssController;
+  use api\controllers\CustomersController;
 
   require "Api.php";
   use api\Api;
@@ -24,9 +30,9 @@
 
   //Routes
   $urls =[
-    '/reactPhp/api/posts' =>['PostsController@getPostFromDatabase'],
-    '/reactPhp/api/searchResult' =>['PostsController@getSearchResults'],
-    '/reactPhp/api/getCurrentTopic' =>['PostsController@getCurrentTopic'],
+    '/hotel/api/users' =>['UsersController@loginUser'],
+    '/hotel/api/customers/createCustomer' =>['CustomersController@createCustomer'],
+    '/hotel/api/reservations' =>['ReservationsController@getReservations'],
   ];
 
   //Check if route available

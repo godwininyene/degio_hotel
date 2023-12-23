@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/bluebirdlogo.png';
 import { Link } from 'react-scroll';
+import {Link as RouterLink} from 'react-router-dom';
 import {AiFillHome, AiFillInfoCircle} from 'react-icons/ai';
 import {FaPhoneSquareAlt,FaGlassCheers,FaUserFriends, FaMap, FaBars} from 'react-icons/fa';
 import{MdClose} from 'react-icons/md';
@@ -85,7 +86,7 @@ const Navigation = () => {
                         </li>
 
                         <li className="block lg:inline-block ml-2 ">
-                            <a href="login" className="inline-block rounded-full text-white font-bold px-3 lg:px-5 border-2 border-primary  py-1 lg:py-3  transition-all cursor-pointer duration-300 ease-in hover:bg-primary hover:text-white">Login</a>
+                            <RouterLink to="/login" className="inline-block rounded-full text-white font-bold px-3 lg:px-5 border-2 border-primary  py-1 lg:py-3  transition-all cursor-pointer duration-300 ease-in hover:bg-primary hover:text-white">Login</RouterLink>
                         </li>
                     </ul>
                 </div>

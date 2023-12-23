@@ -7,7 +7,7 @@
         private $server = "localhost";
         private $db_user = "root";
         private $db_pass = "";
-        private $db_name = "react_php";
+        private $db_name = "bluebellhotel";
 
         // Making Connection
         public function database(){
