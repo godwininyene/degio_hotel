@@ -5,23 +5,18 @@
   require "services/DB.php";
   use services\DB;
 
-  require "controllers/PostsController.php"; 
   require "controllers/UsersController.php";
   require "controllers/ReservationsController.php";
-  require "controllers/CustomersController.php";
-  use api\controllers\PostsController;
+  require "controllers/DataController.php";
   use api\controllers\UsersController;
   use api\controllers\ReservationssController;
-  use api\controllers\CustomersController;
+  use api\controllers\DataController;
 
   require "Api.php";
   use api\Api;
 
-
   //Getting current URL
   $current_link = $_SERVER['REQUEST_URI'];
-
-
 
   //Handling link query 
   if(str_contains($current_link, '?')){
@@ -30,20 +25,26 @@
 
   //Routes
   $urls =[
-    '/hotel/api/users' =>['UsersController@loginUser'],
-    '/hotel/api/customers/createCustomer' =>['CustomersController@createCustomer'],
-    '/hotel/api/reservations' =>['ReservationsController@getReservations'],
+    '/hotel/api/loginUser' =>['UsersController@loginUser'],
+    '/hotel/api/getUsers' =>['UsersController@getUsers'],
+    '/hotel/api/createUser' =>['UsersController@createUser'],
+    '/hotel/api/updateUser' =>['UsersController@updateUser'],
+    '/hotel/api/updatePassword' =>['UsersController@updatePassword'],
+    '/hotel/api/getReservations' =>['ReservationsController@getReservations'],
+    '/hotel/api/createReservation' =>['ReservationsController@createReservation'],
+    '/hotel/api/updateReservation' =>['ReservationsController@updateReservation'],
+    '/hotel/api/deleteReservation' =>['ReservationsController@deleteReservation'],
+    '/hotel/api/getRooms' =>['DataController@getRooms'],
+    '/hotel/api/getStatistics' =>['DataController@getStatistics'],
   ];
 
   //Check if route available
   $availableRoutes = array_keys($urls);
  
-
   if(!in_array($current_link, $availableRoutes)){
     header('http/1.1 404 Not Found');
     exit();
   }
-
 
   Api::routing($current_link, $urls);
 ?>

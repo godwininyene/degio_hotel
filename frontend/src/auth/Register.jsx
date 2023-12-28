@@ -1,12 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../assets/bluebirdlogo.png'
 import bg from '../assets/about-cover.webp'
 import { Link } from 'react-router-dom';
-import { IoLogInOutline } from 'react-icons/io5';
-// import Loader from '@/Components/Loader';
+import { useNavigate } from 'react-router-dom';
+import{FaCircleNotch} from 'react-icons/fa'
 import GuestLayout from '../Layouts/GuestLayout';
 
 export default function Login() {
+    const[isProcessing, setIsProcessing] = useState(false);
+    const navigate = useNavigate();
+
+    const handleSubmit = async(e)=>{
+        setIsProcessing(true);
+        e.preventDefault();
+        let formData = new FormData(e.target);
+        const res = await fetch('http://localhost/hotel/api/createUser', {
+          method:'POST',
+          body:formData,
+        });
+        const data = await res.json();
+        if (data.status == 'success') {
+            setIsProcessing(false);
+            alert(data.message);
+            navigate('/login')
+          
+        } else {
+          console.log(data)
+          setIsProcessing(false);
+        }
+    }
    
     return (
         <GuestLayout>
@@ -14,29 +36,21 @@ export default function Login() {
             {/* Left hand content Start */}
             <div className=" hidden md:block bg-cover bg-right-bottom"  style={{backgroundImage: `url(${bg})`}}>
                 <div className="h-full bg-gradient-to-b from-[#000000ec] via-[#000000b9] to-[#000000b9] bg-opacity-95 text-primary">
-                        
-                    <div className='h-full pt-20 pl-10'>
-                        {/* <img src={phone} alt="mock" className="w-[70%]" /> */}
-                    </div>
                 </div>
             </div>
             {/* Left hand content End */}
 
             {/* Right Hand Content Start */}
             <div className="relative min-h-full px-4 py-10 flex items-center justify-center bg-[rgb(244,244,244)] dark:bg-slate-950">
-                
                 <div className="w-full md:max-w-xl mx-auto ">
-                   <div className="flex-grow flex items-center justify-center py-2">
+                    <Link  className="flex-grow flex items-center justify-center py-2" to="/">
                         <img src={logo} alt="" className="h-20" />
-                        <h1 className='h-full -ml-2 text-2xl uppercase font-medium'>BlueBell Hotel</h1>
-                    </div>
-
-
+                        <h1 className='h-full -ml-2 text-2xl uppercase font-medium'>Degio Hotel and Suites</h1>
+                    </Link>
                     <div className='p-7 bg-white dark:bg-slate-800   rounded-lg shadow-lg'>
                         <h3 className='font-bold text-2xl mb-1 dark:text-white'>Customer Registration Form</h3>
                         <p className='text-sm font-medium leading-[1.6] mb-4 dark:text-white'>Enter your personal details to continue.</p>
-                        {/* {status && <div className="mb-7 font-medium text-sm text-green-600">{status}</div>} */}
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="mb-2 flex ">
 
                                <div className='w-full'>
@@ -44,6 +58,7 @@ export default function Login() {
                                     <input
                                         type="text"
                                         name="firstname"
+                                        required
                                         className=" block w-full peer  py-3 px-5 rounded-md bg-slate-100 text-slate-900 transition-all duration-300 border-0 border-b-[3px] border-b-transparent focus:border-b-primary focus:outline-0 focus:ring-0  focus:bg-white focus:shadow-lg"
                                         placeholder='Enter first name'
                                     />
@@ -54,6 +69,7 @@ export default function Login() {
                                     <input
                                         type="text"
                                         name="lastname"
+                                        required
                                         className="block  w-full peer  py-3 px-5 rounded-md bg-slate-100 text-slate-900 transition-all duration-300 border-0 border-b-[3px] border-b-transparent focus:border-b-primary focus:outline-0 focus:ring-0  focus:bg-white focus:shadow-lg"
                                         autoComplete="current-password"
                                         placeholder='Enter last name'
@@ -68,6 +84,7 @@ export default function Login() {
                                     <input
                                         type="email"
                                         name="email"
+                                        required
                                         className="block w-full peer  py-3 px-5 rounded-md bg-slate-100 text-slate-900 transition-all duration-300 border-0 border-b-[3px] border-b-transparent focus:border-b-primary focus:outline-0 focus:ring-0  focus:bg-white focus:shadow-lg"
                                         placeholder='Enter your email address'
                                     />
@@ -78,6 +95,7 @@ export default function Login() {
                                     <input
                                         type="number"
                                         name="phone"
+                                        required
                                         className="block  w-full peer  py-3 px-5 rounded-md bg-slate-100 text-slate-900 transition-all duration-300 border-0 border-b-[3px] border-b-transparent focus:border-b-primary focus:outline-0 focus:ring-0  focus:bg-white focus:shadow-lg"
                                         placeholder='Enter your phone number'
                                     />
@@ -91,6 +109,7 @@ export default function Login() {
                                     <input
                                         type="password"
                                         name="password"
+                                        required
                                         className=" block w-full peer  py-3 px-5 rounded-md bg-slate-100 text-slate-900 transition-all duration-300 border-0 border-b-[3px] border-b-transparent focus:border-b-primary focus:outline-0 focus:ring-0  focus:bg-white focus:shadow-lg"
                                         placeholder='Enter your password'
                                     />
@@ -100,6 +119,7 @@ export default function Login() {
                                     <label htmlFor="" className='font-medium text-gray-700 text-sm'>Gender</label>
                                     <select
                                         name="gender"
+                                        required
                                         className="block  w-full peer  py-3 px-5 rounded-md bg-slate-100 text-slate-900 transition-all duration-300 border-0 border-b-[3px] border-b-transparent focus:border-b-primary focus:outline-0 focus:ring-0  focus:bg-white focus:shadow-lg"
                                         autoComplete="current-password"
                                         placeholder='Enter last name'
@@ -112,9 +132,8 @@ export default function Login() {
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <button className=" w-full inline-flex items-center justify-center gap-2 items-bottom bg-primary dark:bg-primary dark:hover:bg-primary-light dark:hover:text-white dark:text-white hover:bg-primary-light rounded-md font-semibold px-2 py-3 transition-all duration-300 ease-in  text-white" disabled={false}>
-                                {/* { (processing) ? <Loader /> : (<span>Log In</span>)} */}
-                                    Create Account
+                                <button  className=" disabled w-full inline-flex items-center justify-center gap-2 items-bottom bg-primary dark:bg-primary dark:hover:bg-primary-light dark:hover:text-white dark:text-white hover:bg-primary-light rounded-md font-semibold px-2 py-3 transition-all duration-300 ease-in  text-white">
+                                    { (isProcessing) ? <span className='flex items-center'>Please Wait <FaCircleNotch className='ml-1 h-5 w-5 animate-spin duration-150s'/></span> : <span>Create Account</span>}
                                 </button>
                             </div>
                             <p className='inline-block text-sm text-right mt-2'>
@@ -123,7 +142,6 @@ export default function Login() {
                             
                         </form>
                     </div>
-
                 </div>
             </div>
             {/* Right Content End */}

@@ -1,7 +1,8 @@
 import React from 'react'
 import {Outlet} from 'react-router-dom';
 import bannerBg from '../assets/exec_1.jpg'
-import bg2 from '../assets/slider-1.jpg'
+// import bg2 from '../assets/slider-1.jpg'
+import bg2 from '../assets/img-5.jpg'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import AOS from "aos";

@@ -7,7 +7,7 @@ const Banner = () => {
         <div className='text-center text-white pt-20 md:w-2/4 mx-auto'>
             
             <Link to="/" className={`px-2 py-1 inline-block mb-5 items-center md:mx-0 rounded-xl bg-white bg-opacity-10 text-slate-300 font-medium`}>
-                Welcome to Blue Bell Hotel, Nekede
+                Welcome to Degio Hotel and Suites, Nekede
             </Link>
 
             <h1 className="text-4xl sm:text-5xl font-black mb-4 uppercase" >
