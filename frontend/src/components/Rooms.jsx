@@ -11,7 +11,7 @@ const Booths = () => {
     const [toggle, setToggle] = React.useState(false);
     const closeModal = ()=>{setToggle(prev  => !prev);}
     const [rooms_left, setRoomsLeft] = React.useState(null);
-    const [booths, setBooths] = React.useState(null);
+  
 
     useEffect(()=>{
         fetchStats().then(stats =>setRoomsLeft(stats.rooms_left));        

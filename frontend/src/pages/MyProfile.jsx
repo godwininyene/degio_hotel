@@ -26,7 +26,7 @@ const MyProfile = () => {
         setIsUpdate(true);
         e.preventDefault();
         let formData = new FormData(e.target);
-        const res = await fetch(`http://localhost/hotel/api/updateUser`, {
+        const res = await fetch(`http://localhost/degio_hotel/api/updateUser`, {
           method:'POST',
           body:formData,
         });
@@ -47,7 +47,7 @@ const MyProfile = () => {
         setUpdatePassword(true);
         e.preventDefault();
         let formData = new FormData(e.target);
-        const res = await fetch(`http://localhost/hotel/api/updatePassword`, {
+        const res = await fetch(`http://localhost/degio_hotel/api/updatePassword`, {
           method:'POST',
           body:formData,
         });

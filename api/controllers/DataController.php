@@ -3,6 +3,7 @@
     namespace api\controllers;
     use services\DB;
 
+    
     class DataController{
 
         public $conn = null;
@@ -30,6 +31,7 @@
                 var_dump($e->getMessage());
             }
         }
+
 
         public function getTableColumnsCount($room_type){
             $query = "SELECT * FROM rooms  WHERE status = 'unbook' AND  room_type =  '$room_type' ";
@@ -90,6 +92,4 @@
         }
        
     }
-
-
 ?>

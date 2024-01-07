@@ -20,7 +20,7 @@ const AllBookings = () => {
   const deleteBooking = async(id, room_no)=>{
     setIsDeleting(true)
     setID(id)
-    const res = await fetch(`http://localhost/hotel/api/deleteReservation?id=${id}&room_no=${room_no}`, {
+    const res = await fetch(`http://localhost/degio_hotel/api/deleteReservation?id=${id}&room_no=${room_no}`, {
       method:'DELETE',
       
     });

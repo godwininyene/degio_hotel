@@ -25,17 +25,17 @@
 
   //Routes
   $urls =[
-    '/hotel/api/loginUser' =>['UsersController@loginUser'],
-    '/hotel/api/getUsers' =>['UsersController@getUsers'],
-    '/hotel/api/createUser' =>['UsersController@createUser'],
-    '/hotel/api/updateUser' =>['UsersController@updateUser'],
-    '/hotel/api/updatePassword' =>['UsersController@updatePassword'],
-    '/hotel/api/getReservations' =>['ReservationsController@getReservations'],
-    '/hotel/api/createReservation' =>['ReservationsController@createReservation'],
-    '/hotel/api/updateReservation' =>['ReservationsController@updateReservation'],
-    '/hotel/api/deleteReservation' =>['ReservationsController@deleteReservation'],
-    '/hotel/api/getRooms' =>['DataController@getRooms'],
-    '/hotel/api/getStatistics' =>['DataController@getStatistics'],
+    '/degio_hotel/api/loginUser' =>['UsersController@loginUser'],
+    '/degio_hotel/api/getUsers' =>['UsersController@getUsers'],
+    '/degio_hotel/api/createUser' =>['UsersController@createUser'],
+    '/degio_hotel/api/updateUser' =>['UsersController@updateUser'],
+    '/degio_hotel/api/updatePassword' =>['UsersController@updatePassword'],
+    '/degio_hotel/api/getReservations' =>['ReservationsController@getReservations'],
+    '/degio_hotel/api/createReservation' =>['ReservationsController@createReservation'],
+    '/degio_hotel/api/updateReservation' =>['ReservationsController@updateReservation'],
+    '/degio_hotel/api/deleteReservation' =>['ReservationsController@deleteReservation'],
+    '/degio_hotel/api/getRooms' =>['DataController@getRooms'],
+    '/degio_hotel/api/getStatistics' =>['DataController@getStatistics'],
   ];
 
   //Check if route available

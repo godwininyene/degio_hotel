@@ -44,7 +44,7 @@ const MakeBooking = () => {
        setIsProcessing(true);
        e.preventDefault();
        let formData = new FormData(e.target);
-       const res = await fetch('http://localhost/hotel/api/createReservation', {
+       const res = await fetch('http://localhost/degio_hotel/api/createReservation', {
          method:'POST',
          body:formData,
        });

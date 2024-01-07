@@ -12,7 +12,7 @@ export async function requireAuth(request) {
 }
 
 export const fetchRooms = async(type)=>{
-    const res = await fetch(`http://localhost/hotel/api/getRooms?type=${type}`, {
+    const res = await fetch(`http://localhost/degio_hotel/api/getRooms?type=${type}`, {
         method:'GET',
        
     });
@@ -26,9 +26,9 @@ export  const fetchReservations = async ()=>{
     let url = null;
 
     if(role == 'admin'){
-        url = `http://localhost/hotel/api/getReservations?role=admin`;
+        url = `http://localhost/degio_hotel/api/getReservations?role=admin`;
     }else{
-        url = `http://localhost/hotel/api/getReservations?customer_id=${activeUser.id}`
+        url = `http://localhost/degio_hotel/api/getReservations?customer_id=${activeUser.id}`
     }	
 
     const res = await fetch(url,
@@ -44,7 +44,7 @@ export  const fetchReservations = async ()=>{
 };
 
 export  const fetchUsers = async ()=>{
-    const url = `http://localhost/hotel/api/getUsers`
+    const url = `http://localhost/degio_hotel/api/getUsers`
     const res = await fetch(url,
     {
         headers:{
@@ -58,7 +58,7 @@ export  const fetchUsers = async ()=>{
 };
 
 export const fetchStats = async ()=>{
-    const res = await fetch(`http://localhost/hotel/api/getStatistics`,
+    const res = await fetch(`http://localhost/degio_hotel/api/getStatistics`,
     {
         headers:{
             "Access-Control-Allow-Origin": "*",

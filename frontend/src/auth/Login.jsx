@@ -21,7 +21,7 @@ export default function Login() {
         e.preventDefault();
         let loginFormData = new FormData(e.target);
         const pathname = searchParams.get("redirectTo")|| "/dashboard";
-        const res = await fetch('http://localhost/hotel/api/loginUser', {
+        const res = await fetch('http://localhost/degio_hotel/api/loginUser', {
           method:'POST',
           body:loginFormData,
         });

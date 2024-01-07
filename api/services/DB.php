@@ -7,7 +7,7 @@
         private $server = "localhost";
         private $db_user = "root";
         private $db_pass = "";
-        private $db_name = "bluebellhotel";
+        private $db_name = "degio_hotel";
 
         // Making Connection
         public function database(){
@@ -19,5 +19,6 @@
             return $con;
         }
     } 
-
+    
 ?>
+

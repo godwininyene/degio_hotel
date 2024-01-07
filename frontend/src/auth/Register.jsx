@@ -14,7 +14,7 @@ export default function Login() {
         setIsProcessing(true);
         e.preventDefault();
         let formData = new FormData(e.target);
-        const res = await fetch('http://localhost/hotel/api/createUser', {
+        const res = await fetch('http://localhost/degio_hotel/api/createUser', {
           method:'POST',
           body:formData,
         });

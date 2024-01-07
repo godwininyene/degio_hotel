@@ -18,7 +18,7 @@ const CheckInCheckOut = () => {
     const updateBookingStatus = async(status,id, room_num)=>{
         setIsUpdating(true)
         setID(id)
-        const res = await fetch(`http://localhost/hotel/api/updateReservation?status=${status}&id=${id}&room_no=${room_num}`, {
+        const res = await fetch(`http://localhost/degio_hotel/api/updateReservation?status=${status}&id=${id}&room_no=${room_num}`, {
           method:'PATCH',
          
         });
